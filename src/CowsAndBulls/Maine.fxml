@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="CowsAndBulls.MaineController">
+    <TextField fx:id="txt"/>
+    <Label text="${'Hello, ' + txt.text + '!'}"/>
+
+    <top>
+        <HBox>
+            <Spinner fx:id="spin1" initialValue="5" max="9" min="0" prefWidth="50"/>
+            <Spinner fx:id="spin2" initialValue="5" max="9" min="0" prefWidth="50"/>
+            <Spinner fx:id="spin3" initialValue="5" max="9" min="0" prefWidth="50"/>
+            <Spinner fx:id="spin4" initialValue="5" max="9" min="0" prefWidth="50"/>
+            <Button text="TRY!" onAction="#go"/>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="turns">
+            <columns>
+                <TableColumn text="Turn #">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="TurnNr"/>
+                    </cellValueFactory>
+                </TableColumn>
+
+                <TableColumn text="Combi">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="guess"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Bulls"/>
+                <TableColumn text="Cows"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
